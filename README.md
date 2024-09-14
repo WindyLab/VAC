@@ -15,17 +15,18 @@ conda env create -f environment.yaml
 conda activate vas
 ```
 
+## Data Preparation
+The rosbag can be downloaded here:                 
+https://pan.baidu.com/s/1GiTkiQ3HAEgBWp0ixGFDFw?pwd=pk34                    
+password: pk34          
+We provide bags in Gazebo and real-world environment.                     
+
 ## Build CPP ROS Nodes
 Some nodes are implemented in C++, so go to the vas_ws to build them.
 ```bash
 cd vas_ws
 catkin_make
 ```
-
-## Data Preparation
-The rosbag can be downloaded here:                    
-We provide bags in Gazebo and real-world environment.                     
-
 ## Offline Running
 The offline running requires the conda environment, make sure you configure it before starting.
 To publish the data and start all-in-one running script:    
