@@ -8,7 +8,7 @@ The code runs on Ubuntu 20.04 with ros noetic.
 The robot uses a Jetson Xavier NX with JetPack 5.1.3.
 
 #### Setup the Environment
-To setup the offline python environment for model training and offline running.
+To setup the offline python environment for model training and offline running:     
 
 ```bash
 conda env create -f environment.yaml
@@ -22,23 +22,23 @@ password: pk34
 We provide bags in Gazebo and real-world environment.                     
 
 ## Build CPP ROS Nodes
-Some nodes are implemented in C++, so go to the vas_ws to build them.
+Some nodes are implemented in C++, so go to the vas_ws to build them:         
 ```bash
 cd vas_ws
 catkin_make
 ```
 ## Offline Running
-The offline running requires the conda environment, make sure you configure it before starting.
-To publish the data and start all-in-one running script:    
+Before running offline, make sure that the required Conda environment is properly set up. Once configured, you can publish the data and start the all-in-one script:
 ```bash
 rosbag play PATH_TO_THE_BAG
 bash script/off_start.sh
 ```
-If you prefer running each module separately, check the corresponding modules in off_start.sh.       
-The host_id parameter in the image_concatenator node refers to the id of each robot. For data in Gazebo simulation, the host_id=999. The offline running code will show the general workflow, visual detection results, and velocity command. In the real-world or gazebo simulation experiment, the robot responses to the velocity command and moves to form collective behavior.
+If you prefer to run each module separately, refer to the respective modules in the [off_start.sh](./script/off_start.sh) script. The `host_id` parameter in the `image_concatenator` node corresponds to the ID of each robot. For data in Gazebo simulations, set `host_id=999`.              
+
+The offline running code demonstrates the overall workflow, including visual detection results and velocity commands. In real-world or Gazebo simulation experiments, the robot will respond to the velocity commands and move to exhibit collective behavior.            
 
 ## Onboard Running
-All models must be converted to [TensorRT](https://github.com/NVIDIA/TensorRT) in advance.      
+To run the code on a real robot, all network models must be converted to [TensorRT](https://github.com/NVIDIA/TensorRT) in advance.      
 Start the triton-server, then change the following lines in [off_start.sh](./script/off_start.sh)
 ```bash
 python3 ros_nodes/ob_detection.py  ->  python3 ros_nodes/onboard_detection.py
