@@ -16,10 +16,10 @@ conda activate vas
 ```
 
 ## Data Preparation
-The rosbag can be downloaded here:                 
+The data and checkpoints can be downloaded here:<a id="data-id"></a>                 
 https://pan.baidu.com/s/1GiTkiQ3HAEgBWp0ixGFDFw?pwd=pk34                    
 password: pk34          
-We provide bags in Gazebo and real-world environment.                     
+We provide ros bags in Gazebo and real-world environment.                     
 
 ## Build CPP ROS Nodes
 Some nodes are implemented in C++, so go to the vas_ws to build them:         
@@ -28,7 +28,11 @@ cd vas_ws
 catkin_make
 ```
 ## Offline Running
-Before running offline, make sure that the required Conda environment is properly set up. Once configured, you can publish the data and start the all-in-one script:
+Before running offline, make sure that the required Conda environment is properly set up. Once configured, download the check points and unzip it in the root folder.
+```bash
+unzip checkpoints.zip -d ./
+```
+then you can publish the data and start the all-in-one script:
 ```bash
 rosbag play PATH_TO_THE_BAG
 bash script/off_start.sh
@@ -60,7 +64,7 @@ The yolo_test folder contains the code borrowed from YOLOv5 for offline running,
 onnx conversion and post-process.
 
 ## Neural Interaction Graph Prediction
-The training and inference code of our GVAE model is in gvae folder. Use the scripts in [`run_scripts`](./gvae/run_scripts) to train the model.
+The training and inference code of our GVAE model is in `gvae` folder. Use the scripts in [`run_scripts`](./gvae/run_scripts) to train the model. A training example data is also provided in the [Data Preparation](#data-id). You can unzip and copy it to the `gvae` folder.
 
 
 ## Acknowledgement
@@ -70,4 +74,7 @@ The training and inference code of our GVAE model is in gvae folder. Use the scr
 * Our [`YOLOv5`](./yolo_test) running code is adapted from the official code of [YOLOv5](https://github.com/ultralytics/yolov5).
 * The onboard code utilizes the acceleration and scheduling of [TensorRT](https://github.com/NVIDIA/TensorRT) and [Triton](https://github.com/triton-inference-server).
 
+## Others
+This project is licensed under the [MIT License](./LICENSE).            
+If you have any questions, please contact likai [at] westlake [dot] edu [dot] cn
 
