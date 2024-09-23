@@ -1,0 +1,22 @@
+{
+    "k": 300,
+    "k_sep":  0.9,
+    "k_mig":  10,
+    "v_max":  0.2,
+    "angular_z_max":  0.6,
+    "kp_angular_z":  1,
+    "kd_angular_z":  0.1,
+    "sigma_mu":0.001,
+    "sigma_omega":0.007,
+    "neighbor_selection":1,
+    "dist_metric": 1.0,
+    "vatt_rz":0.25,
+    "target_sz":0.3,
+    "topo_num": 2,
+    "img_width": 1640,
+    "img_height": 180,
+    "check_att_value": 1,
+    "att_thres": 0.5,
+    "att_thres1": 0.5,
+    "att_thres2": 0.8
+}
