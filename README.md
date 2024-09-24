@@ -42,8 +42,10 @@ If you prefer to run each module separately, refer to the respective modules in 
 The offline running code demonstrates the overall workflow, including visual detection results and velocity commands. In real-world or Gazebo simulation experiments, the robot will respond to the velocity commands and move to exhibit collective behavior.            
 
 ## Onboard Running
-To run the code on a real robot, all network models must be converted to [TensorRT](https://github.com/NVIDIA/TensorRT) in advance.      
-Start the triton-server, then change the following lines in [off_start.sh](./script/off_start.sh)
+To run the code on a real robot, all network models must be converted to [TensorRT](https://github.com/NVIDIA/TensorRT) in advance. For tutorials on TensorRT and Triton, please refer to Nvidia's official resources: [TensorRT](https://github.com/NVIDIA/TensorRT) and [Triton](https://github.com/triton-inference-server). These details will not be covered in this project.
+
+To execute the code onboard, first start the Triton server. Then, modify the specified lines in [off_start](./script/off_start.sh) and run the script.
+
 ```bash
 python3 ros_nodes/ob_detection.py  ->  python3 ros_nodes/onboard_detection.py
 ```
@@ -73,6 +75,7 @@ The training and inference code of our GVAE model is in `gvae` folder. Use the s
 * Our json loading in [JSON](./vas_ws/src/vas/src/json.hpp) is borrowed from [json for modern C++](https://github.com/nlohmann/json).
 * Our [`YOLOv5`](./yolo_test) running code is adapted from the official code of [YOLOv5](https://github.com/ultralytics/yolov5).
 * The onboard code utilizes the acceleration and scheduling of [TensorRT](https://github.com/NVIDIA/TensorRT) and [Triton](https://github.com/triton-inference-server).
+* The robot swarm system for simulation and real-world experiment is based on our previous work. More details can be found at [Omnibot](https://shiyuzhao.westlake.edu.cn/2024ICCA_Omnibot.pdf).
 
 ## Others
 This project is licensed under the [MIT License](./LICENSE).            
